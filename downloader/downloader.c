@@ -22,7 +22,8 @@ int main(int argc, char* argv[]) {
     if (!are_arguments_correct(argc, argv)) {
         return -1;
     }
-
+    
+    char outfile[10];
     char download_mode=argv[2][0];
     int num_processes=atoi(argv[1]);
 
@@ -56,7 +57,14 @@ int main(int argc, char* argv[]) {
             from = to + 1;
             to = REMOTE_TARGET_SIZE_IN_BYTES;
         }
+        int pid = fork();
+        if (pid == 0){
+            printf("\t chunk #%d: Range %d-%d \n", i, from, to);
+            sprintf(outfile, "%s-%d", CHUNK_FILENAME_PREFIX, i);
+            download_fragment(TARGET_URL, from, to, outfile);
+            exit(0);
 
+        };
         /**
          * TODO: Create a child process that will:
          *   - Print a message showing what part it will download (mostly for
@@ -71,6 +79,7 @@ int main(int argc, char* argv[]) {
 
 
         if (download_mode == 'S') {
+            wait(NULL);
             /**
              * TODO: the father must wait until the child has finished
              * downloading the current chunk if the download mode is S
@@ -80,6 +89,9 @@ int main(int argc, char* argv[]) {
     }
 
     if (download_mode == 'P') {
+        for(int i = 0; i <= num_processes; i++){
+            wait(NULL);
+        };
         /**
          * TODO: wait until all the downloads have finished if the download mode
          * is P (parallel)
