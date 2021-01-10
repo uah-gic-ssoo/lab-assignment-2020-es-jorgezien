@@ -21,8 +21,8 @@ void * thread_function(void * data) {
     /* TODO: Implement the loop that obtains the random points and counts how
      * many of those lay within the circumference of radius 1 */
     for(int i = 0; i < points; i++){
-       drand48_r(time(NULL), &x);
-       drand48_r(time(NULL), &y);
+       drand48_r(&rand_buffer, &x);
+       drand48_r(&rand_buffer, &y);
        if ((x*x + y*y) <= 1){
            hits = hits + 1;
        }
