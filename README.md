@@ -10,4 +10,4 @@ Student 2 (optional): Raúl Calzada Maldonado
 
 ## Compilation
 
-Compile compute.c with the following command: gcc -o hilos compute.c main.c -lpthread
+Compile compute.c with the following command: `gcc -o hilos compute.c main.c -lpthread`
