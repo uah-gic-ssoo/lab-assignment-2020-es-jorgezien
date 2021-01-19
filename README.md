@@ -7,3 +7,7 @@ Repository with the files of the laboratory assignment for the course 2020-2021
 Student 1: Jorge Martín García
 
 Student 2 (optional): Raúl Calzada Maldonado
+
+## Compilation
+
+Compile compute.c with the following command: gcc -o hilos compute.c main.c -lpthread
