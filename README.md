@@ -10,5 +10,5 @@ Student 2 (optional): Raúl Calzada Maldonado
 
 ## Compilation
 
-Compile downloader.c with the following command: `gcc -o downloader.out downloader.c`
+Compile downloader.c with the following command: `gcc -o downloader.out downloader.c`  
 Compile compute.c with the following command: `gcc -o hilos compute.c main.c -lpthread`
