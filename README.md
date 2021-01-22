@@ -1,4 +1,4 @@
-# Laboratory assigment
+# Laboratory assignment
 
 Repository with the files of the laboratory assignment for the course 2020-2021
 
